@@ -8,7 +8,6 @@
 
 int main(void)
 {
-    clock_t start, end;
     struct node *root = NULL;
 
     // initialize random seed
@@ -38,14 +37,14 @@ int main(void)
             QueryPerformanceCounter(&end);
             interval = (double) 1000*(end.QuadPart - start.QuadPart) / frequency.QuadPart;
         #else
-            start = clock();
+            clock_t start = clock();
             for (int j = 0; j < n; j++)
             {
                 int random = rand();
                 insert(&root, random);
             }
 
-            end = clock();
+            clock_t end = clock();
             /* clock_t begin = clock(); */
             /* int pos = find(array, n, random); */
             /* clock_t end = clock(); */
