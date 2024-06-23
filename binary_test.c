@@ -2,7 +2,9 @@
 #include <stdlib.h>
 #include <time.h>
 #include "binary_tree.h"
+#ifndef LINUX
 #include <Windows.h>
+#endif
 
 int main(void)
 {
@@ -50,7 +52,7 @@ int main(void)
             /* double time_spent = (double)(end - begin); */
 
             /* printf("pow: %i elems: %i pos: %i time: %f\n", i, n, pos, time_spent); */
-            interval = (double) 1000*(end - start);
+            interval = (double) 1000 * (end - start) / CLOCKS_PER_SEC;
         #endif
 
         printf("%i %f\n", i, interval);
